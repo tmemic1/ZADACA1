@@ -46,4 +46,7 @@ public class Kviz {
            pitanja.add(pitanje);
     }
 
+    public int predajKviz(Map<Pitanje, ArrayList<String>> zaokruzeniOdgovori) {
+           return 0;
+    }
 }
