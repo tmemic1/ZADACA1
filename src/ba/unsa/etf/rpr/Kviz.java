@@ -1,12 +1,9 @@
 package ba.unsa.etf.rpr;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
-public class Kviz extends Pitanje {
-       public enum SistemBodovanja{BINARNO, PARCIJALNO, PARCIJALNO_SA_NEGATIVNIM}
+public class Kviz {
+
     String naziv;
     List<Pitanje> pitanja;
     SistemBodovanja sistemBodovanja;
@@ -39,17 +36,14 @@ public class Kviz extends Pitanje {
     public void setSistemBodovanja(SistemBodovanja sistemBodovanja) {
         this.sistemBodovanja = sistemBodovanja;
     }
-    public void dodajPitanje(Pitanje pitanje) {
-        ListIterator<Pitanje> it= pitanja.listIterator();
-        while(it!=pitanja.size()) {
-            if(this.it.getTekstPitanja()==pitanje.getTekstPitanja())
-                throw new IllegalArgumentException("Ne možete dodati pitanje sa tekstom koji već postoji");
-            it++;
-        }
+    public void dodajPitanje(Pitanje pitanje) throws IllegalArgumentException {
+           String poruka=pitanje.getTekstPitanja();
+           Iterator it= pitanja.iterator();
+           while(it.hasNext()) {
+               Pitanje poruka1=(Pitanje) it;
+             if(poruka==poruka1.getTekstPitanja()) throw new IllegalArgumentException("Ne možete dodati pitanje sa tekstom koji već postoji");
+           }
            pitanja.add(pitanje);
-    }
-    public void toString() {
-
     }
 
 }
