@@ -2,13 +2,13 @@ package ba.unsa.etf.rpr;
 
 public class Odgovor {
     String tekstOdgovora;
-    boolean tacnostOdgovora;
+    String id;
+    boolean Tacno;
 
-    public Odgovor(String tekstOdgovora, boolean tacnostOdgovora) {
+    public Odgovor(String tekstOdgovora,boolean tacno) {
         this.tekstOdgovora = tekstOdgovora;
-        this.tacnostOdgovora = tacnostOdgovora;
+        Tacno = tacno;
     }
-
     public String getTekstOdgovora() {
         return tekstOdgovora;
     }
@@ -17,11 +17,19 @@ public class Odgovor {
         this.tekstOdgovora = tekstOdgovora;
     }
 
-    public boolean isTacnostOdgovora() {
-        return tacnostOdgovora;
+    public String getId() {
+        return id;
     }
 
-    public void setTacnostOdgovora(boolean tacnostOdgovora) {
-        this.tacnostOdgovora = tacnostOdgovora;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public boolean isTacno() {
+        return Tacno;
+    }
+
+    public void setTacno(boolean tacno) {
+        Tacno = tacno;
     }
 }

@@ -7,29 +7,29 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PitanjeTest {
     @Test
-    public void testKonstruktor(){
+    public void testKonstruktor() {
         Pitanje pitanje = new Pitanje("Koji je podrazumijevani scope u Javi?", 2);
         assertAll(
-                () -> assertEquals("Koji je podrazumijevani scope u Javi?",pitanje.getTekst()),
+                () -> assertEquals("Koji je podrazumijevani scope u Javi?", pitanje.getTekst()),
                 () -> assertEquals(2, pitanje.getBrojPoena()),
                 () -> assertTrue(pitanje.getOdgovori().isEmpty())
         );
     }
 
     @Test
-    public void testSetteri(){
+    public void testSetteri() {
         Pitanje pitanje = new Pitanje("Koji je podrazumijevani scope u Javi?", 2);
         pitanje.setBrojPoena(2.5);
         pitanje.setTekst("Promijenjeni tekst");
         assertAll(
-                () -> assertEquals("Promijenjeni tekst",pitanje.getTekst()),
+                () -> assertEquals("Promijenjeni tekst", pitanje.getTekst()),
                 () -> assertEquals(2.5, pitanje.getBrojPoena()),
                 () -> assertTrue(pitanje.getOdgovori().isEmpty())
         );
     }
 
     @Test
-    public void testDodajOdgovor1(){
+    public void testDodajOdgovor1() {
         Pitanje pitanje = new Pitanje("Koji je podrazumijevani scope u Javi?", 2);
         pitanje.dodajOdgovor("a", "package", true);
         pitanje.dodajOdgovor("b", "private", false);
@@ -37,11 +37,11 @@ class PitanjeTest {
     }
 
     @Test
-    public void testDodajOdgovor2(){
+    public void testDodajOdgovor2() {
         Pitanje pitanje = new Pitanje("Koji je podrazumijevani scope u Javi?", 2);
         pitanje.dodajOdgovor("a", "package", true);
         Exception exception = assertThrows(IllegalArgumentException.class,
-                () ->  pitanje.dodajOdgovor("a", "private", false));
+                () -> pitanje.dodajOdgovor("a", "private", false));
 
         assertAll(
                 () -> assertEquals("Id odgovora mora biti jedinstven", exception.getMessage()),
@@ -49,8 +49,11 @@ class PitanjeTest {
         );
     }
 
+
+    //import org.junit.jupiter.api.Test;
+
     @Test
-    public void testObrisiOdgovor1(){
+    public void testObrisiOdgovor1() {
         Pitanje pitanje = new Pitanje("Koji je podrazumijevani scope u Javi?", 2);
         pitanje.dodajOdgovor("a", "package", true);
         pitanje.obrisiOdgovor("a");
@@ -58,11 +61,11 @@ class PitanjeTest {
     }
 
     @Test
-    public void testObrisiOdgovor2(){
+    public void testObrisiOdgovor2() {
         Pitanje pitanje = new Pitanje("Koji je podrazumijevani scope u Javi?", 2);
         pitanje.dodajOdgovor("a", "package", true);
         Exception exception = assertThrows(IllegalArgumentException.class,
-                () ->  pitanje.obrisiOdgovor("b"));
+                () -> pitanje.obrisiOdgovor("b"));
 
         assertAll(
                 () -> assertEquals("Odgovor s ovim id-em ne postoji", exception.getMessage()),
@@ -70,8 +73,9 @@ class PitanjeTest {
         );
     }
 
+
     @Test
-    public void testDajListuOdgovora(){
+    public void testDajListuOdgovora() {
         Pitanje pitanje = new Pitanje("Koji je podrazumijevani scope u Javi?", 2);
         pitanje.dodajOdgovor("a", "package", true);
         pitanje.dodajOdgovor("b", "private", false);
@@ -83,6 +87,7 @@ class PitanjeTest {
                 () -> assertFalse(odgovori.contains(new Odgovor("package", false)))
         );
     }
+
 
     @Test
     public void testIzracunajPoene1(){

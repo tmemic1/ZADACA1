@@ -7,11 +7,12 @@ public class Kviz {
     String naziv;
     List<Pitanje> pitanja;
     SistemBodovanja sistemBodovanja;
-       Kviz(String nazivPitanja, SistemBodovanja sistem) {
-           this.naziv=nazivPitanja;
-           this.sistemBodovanja=sistem;
-           pitanja=new ArrayList<Pitanje>(0);
-       }
+
+    public Kviz(String moj_kviz, SistemBodovanja parcijalno) {
+        naziv=moj_kviz;
+        sistemBodovanja=parcijalno;
+        pitanja=new ArrayList<>();
+    }
 
     public String getNaziv() {
         return naziv;
@@ -37,16 +38,11 @@ public class Kviz {
         this.sistemBodovanja = sistemBodovanja;
     }
     public void dodajPitanje(Pitanje pitanje) throws IllegalArgumentException {
-           String poruka=pitanje.getTekstPitanja();
-           Iterator it= pitanja.iterator();
-           while(it.hasNext()) {
-               Pitanje poruka1=(Pitanje) it;
-             if(poruka==poruka1.getTekstPitanja()) throw new IllegalArgumentException("Ne možete dodati pitanje sa tekstom koji već postoji");
-           }
+           if(pitanja.contains(pitanje)) throw new IllegalArgumentException("Ne možete dodati pitanje sa tekstom koji već postoji");
            pitanja.add(pitanje);
     }
 
-    public int predajKviz(Map<Pitanje, ArrayList<String>> zaokruzeniOdgovori) {
-           return 0;
+    public RezultatKviza predajKviz(Map<Pitanje, ArrayList<String>> zaokruzeniOdgovori) {
+        return null;
     }
 }
