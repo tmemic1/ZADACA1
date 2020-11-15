@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -48,9 +49,6 @@ class PitanjeTest {
                 () -> assertEquals(1, pitanje.getOdgovori().size())
         );
     }
-
-
-    //import org.junit.jupiter.api.Test;
 
     @Test
     public void testObrisiOdgovor1() {
