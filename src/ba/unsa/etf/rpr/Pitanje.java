@@ -58,6 +58,6 @@ public class Pitanje{
     }
 
     public double izracunajPoene(List<String> a, SistemBodovanja nacinBodovanja) {
-      return 0;
+    return 0;
     }
 }
